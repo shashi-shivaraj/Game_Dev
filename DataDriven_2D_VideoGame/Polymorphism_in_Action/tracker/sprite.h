@@ -7,10 +7,10 @@ class Sprite : public Drawable {
 public:
   Sprite(const std::string&);
   Sprite(const std::string&, const Vector2f& pos, const Vector2f& vel, 
-         const Image*);
-  Sprite(const Sprite&);
+         const Image*, float scale);
+  Sprite(const Sprite&) = delete;
   virtual ~Sprite() { } 
-  Sprite& operator=(const Sprite&);
+  Sprite& operator=(const Sprite&) = delete;
 
   virtual void draw() const;
   virtual void update(Uint32 ticks);

@@ -32,7 +32,7 @@ private:
   const Drawable *objectToTrack;
 
   Viewport();
-  Viewport(const Viewport&);
-  Viewport& operator=(const Viewport&);
+  Viewport(const Viewport&) = delete;
+  Viewport& operator=(const Viewport&) = delete;
 };
 #endif

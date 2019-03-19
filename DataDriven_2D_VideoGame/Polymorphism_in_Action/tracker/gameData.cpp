@@ -45,8 +45,12 @@ int Gamedata::getXmlInt(const string& tag) const {
   else {
     std::stringstream strm;
     strm << ptr->second;
-    int data;
+    std::string stringNumber = strm.str();
+    int data = 0;
     strm >> data;
+    if ( strm.fail()  ) {
+      throw "Invalid integer for "+tag+string(" in xml");
+    }
     return data;
   }
 }
@@ -58,8 +62,11 @@ float Gamedata::getXmlFloat(const string& tag) const {
   else {
     std::stringstream strm;
     strm << ptr->second;
-    float data;
+    float data = 0.0f;
     strm >> data;
+    if ( strm.fail()  ) {
+      throw "Invalid float for "+tag+string(" in xml");
+    }
     return data;
   }
 }

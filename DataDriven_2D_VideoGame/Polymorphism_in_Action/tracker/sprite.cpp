@@ -15,8 +15,8 @@ Vector2f Sprite::makeVelocity(int vx, int vy) const {
 }
 
 Sprite::Sprite(const string& n, const Vector2f& pos, const Vector2f& vel,
-               const Image* img):
-  Drawable(n, pos, vel), 
+               const Image* img, float scale):
+  Drawable(n, pos, vel, scale), 
   image( img ),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height"))
@@ -28,27 +28,13 @@ Sprite::Sprite(const std::string& name) :
                     Gamedata::getInstance().getXmlInt(name+"/startLoc/y")), 
            Vector2f(
                     Gamedata::getInstance().getXmlInt(name+"/speedX"), 
-                    Gamedata::getInstance().getXmlInt(name+"/speedY")) 
+                    Gamedata::getInstance().getXmlInt(name+"/speedY")),
+           Gamedata::getInstance().getXmlFloat(name+"/scale")
            ),
   image( ImageFactory::getInstance()->getImage(name) ),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height"))
 { }
-
-Sprite::Sprite(const Sprite& s) :
-  Drawable(s), 
-  image(s.image),
-  worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
-  worldHeight(Gamedata::getInstance().getXmlInt("world/height"))
-{ }
-
-Sprite& Sprite::operator=(const Sprite& rhs) {
-  Drawable::operator=( rhs );
-  image = rhs.image;
-  worldWidth = rhs.worldWidth;
-  worldHeight = rhs.worldHeight;
-  return *this;
-}
 
 inline namespace{
   constexpr float SCALE_EPSILON = 2e-7;

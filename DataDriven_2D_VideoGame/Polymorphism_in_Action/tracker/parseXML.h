@@ -20,6 +20,8 @@ public:
     xmlData()
   { parseXML(); }
   virtual ~ParseXML() { XML_ParserFree(parser); }
+  ParseXML& operator=(const ParseXML&) = delete;
+  ParseXML(const ParseXML&) = delete;
 
   const map<string, string> getXmlData() const { return xmlData; }
 
@@ -44,8 +46,6 @@ private:
   std::string makeTag(const std::string&) const;
 
   void stripTrailWhiteSpace(string&) const;
-  ParseXML& operator=(const ParseXML&);
-  ParseXML(const ParseXML&);
 };
 
 #endif

@@ -15,7 +15,8 @@ MultiSprite::MultiSprite( const std::string& name) :
            Vector2f(Gamedata::getInstance().getXmlInt(name+"/startLoc/x"), 
                     Gamedata::getInstance().getXmlInt(name+"/startLoc/y")), 
            Vector2f(Gamedata::getInstance().getXmlInt(name+"/speedX"),
-                    Gamedata::getInstance().getXmlInt(name+"/speedY"))
+                    Gamedata::getInstance().getXmlInt(name+"/speedY")),
+           Gamedata::getInstance().getXmlFloat(name+"/scale")
            ),
   images( ImageFactory::getInstance()->getImages(name) ),
 
@@ -26,29 +27,6 @@ MultiSprite::MultiSprite( const std::string& name) :
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height"))
 { }
-
-MultiSprite::MultiSprite(const MultiSprite& s) :
-  Drawable(s), 
-  images(s.images),
-  currentFrame(s.currentFrame),
-  numberOfFrames( s.numberOfFrames ),
-  frameInterval( s.frameInterval ),
-  timeSinceLastFrame( s.timeSinceLastFrame ),
-  worldWidth( s.worldWidth ),
-  worldHeight( s.worldHeight )
-  { }
-
-MultiSprite& MultiSprite::operator=(const MultiSprite& s) {
-  Drawable::operator=(s);
-  images = (s.images);
-  currentFrame = (s.currentFrame);
-  numberOfFrames = ( s.numberOfFrames );
-  frameInterval = ( s.frameInterval );
-  timeSinceLastFrame = ( s.timeSinceLastFrame );
-  worldWidth = ( s.worldWidth );
-  worldHeight = ( s.worldHeight );
-  return *this;
-}
 
 void MultiSprite::draw() const { 
   images[currentFrame]->draw(getX(), getY(), getScale());

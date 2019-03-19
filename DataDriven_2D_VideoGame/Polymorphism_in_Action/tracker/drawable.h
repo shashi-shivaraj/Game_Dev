@@ -10,8 +10,9 @@
 // that derived classes may or must have.
 class Drawable {
 public:
-  Drawable(const std::string& n, const Vector2f& pos, const Vector2f& vel): 
-    name(n), position(pos), velocity(vel), scale(1.0) {}
+  Drawable(const std::string& n, const Vector2f& pos, 
+           const Vector2f& vel, float s): 
+    name(n), position(pos), velocity(vel), scale(s) {}
 
   Drawable(const Drawable& s) : 
     name(s.name), position(s.position), velocity(s.velocity), scale(s.scale)

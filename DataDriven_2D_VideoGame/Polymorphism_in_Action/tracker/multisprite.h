@@ -8,7 +8,8 @@
 class MultiSprite : public Drawable {
 public:
   MultiSprite(const std::string&);
-  MultiSprite(const MultiSprite&);
+  MultiSprite(const MultiSprite&) = delete;
+  MultiSprite& operator=(const MultiSprite&) = delete;
 
   virtual void draw() const;
   virtual void update(Uint32 ticks);
@@ -37,6 +38,5 @@ protected:
   int worldHeight;
 
   void advanceFrame(Uint32 ticks);
-  MultiSprite& operator=(const MultiSprite&);
 };
 #endif

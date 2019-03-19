@@ -23,14 +23,13 @@ Engine::Engine() :
   renderer( rc->getRenderer() ),
   world("back", Gamedata::getInstance().getXmlInt("back/factor") ),
   viewport( Viewport::getInstance() ),
-  star(new Sprite("YellowStar")),
+  star(new Sprite("YellowStar")),  // star is scaled in the XML
   spinningStar(new MultiSprite("SpinningStar")),
   currentSprite(0),
   makeVideo( false )
 {
-  star->setScale(1.5); 
   Viewport::getInstance().setObjectToTrack(star);
-  std::cout << "Loading complete" << std::endl;
+  std::cout << "Construction of Engine complete" << std::endl;
 }
 
 void Engine::draw() const {

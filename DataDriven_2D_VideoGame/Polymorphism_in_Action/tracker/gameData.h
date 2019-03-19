@@ -24,7 +24,7 @@ private:
   const map<std::string, std::string> gameData;
 
   Gamedata(const std::string& fn = "xmlSpec/game.xml");
-  Gamedata(const Gamedata&);
-  Gamedata& operator=(const Gamedata&);
+  Gamedata(const Gamedata&) = delete;
+  Gamedata& operator=(const Gamedata&) = delete;
 };
 #endif

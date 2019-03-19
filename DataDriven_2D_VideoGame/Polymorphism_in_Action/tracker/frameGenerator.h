@@ -4,6 +4,8 @@
 class FrameGenerator {
 public:
   FrameGenerator();
+  FrameGenerator(const FrameGenerator&) = delete;
+  FrameGenerator& operator=(const FrameGenerator&) = delete;
   void makeFrame();
   unsigned int getFrameCount() const { return frameCount; }
 private:
@@ -14,6 +16,4 @@ private:
   const std::string USERNAME;
   const int MAX_FRAMES;
   int frameCount;
-  FrameGenerator(const FrameGenerator&);
-  FrameGenerator& operator=(const FrameGenerator&);
 };

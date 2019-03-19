@@ -6,6 +6,8 @@ class World {
 public:
   World(const std::string& name, int fact);
   // ~World() { } // The image will be deleted by the FrameFactory
+  World(const World&) = delete;
+  World& operator=(const World&) = delete;
   void update();
   void draw() const;
 private:
@@ -15,6 +17,4 @@ private:
   float viewX;
   float viewY;
   const Viewport & view;
-  World(const World&);
-  World& operator=(const World&);
 };
