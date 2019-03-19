@@ -35,7 +35,7 @@ void ParseXML::parseXML() {
 
 void ParseXML::displayData() const 
 {
-  for(auto ptr:xmlData) 
+  for(auto &ptr:xmlData) 
   {
     std::cout << '(' << ptr.first << ", " 
                      << ptr.second << ')' << std::endl;

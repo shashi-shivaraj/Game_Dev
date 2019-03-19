@@ -80,7 +80,7 @@ const string& Gamedata::getXmlStr(const string& tag) const {
 
 void Gamedata::displayData() const 
 {
-  for (auto ptr:gameData)
+  for (auto &ptr:gameData)
   {
     std::cout << ptr.first << ", " << ptr.second << std::endl;
   }
