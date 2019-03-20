@@ -4,7 +4,7 @@
 RenderContext::RenderContext() : 
   window(nullptr), 
   renderer(nullptr),
-  factory( ImageFactory::getInstance() )
+  factory( ImageFactory::getInstance())
 {
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
 	  throw (std::string("Could not init SDL: ") + SDL_GetError());
@@ -13,8 +13,8 @@ RenderContext::RenderContext() :
   renderer = initRenderer();
 }
 
-RenderContext::~RenderContext() {
-  delete ImageFactory::getInstance();
+RenderContext::~RenderContext() 
+{
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow( window );
   SDL_Quit();

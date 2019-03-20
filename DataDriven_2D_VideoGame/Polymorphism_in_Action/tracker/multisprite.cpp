@@ -18,7 +18,7 @@ MultiSprite::MultiSprite( const std::string& name) :
                     Gamedata::getInstance().getXmlInt(name+"/speedY")),
            Gamedata::getInstance().getXmlFloat(name+"/scale")
            ),
-  images( ImageFactory::getInstance()->getImages(name) ),
+  images( ImageFactory::getInstance().getImages(name) ),
 
   currentFrame(0),
   numberOfFrames( Gamedata::getInstance().getXmlInt(name+"/frames") ),

@@ -14,7 +14,7 @@ private:
   SDL_Window* window;
   SDL_Renderer* renderer;
 
-  ImageFactory* factory;
+  ImageFactory& factory;
 
   SDL_Window* initWindow();
   SDL_Renderer* initRenderer();
