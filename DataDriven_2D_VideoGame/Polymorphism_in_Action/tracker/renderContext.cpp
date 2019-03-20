@@ -20,9 +20,8 @@ RenderContext::~RenderContext() {
   SDL_Quit();
 }
 
-RenderContext* RenderContext::getInstance() {
-  if ( instance ) return instance;
-  instance = new RenderContext;
+RenderContext& RenderContext::getInstance() {
+  static RenderContext instance;
   return instance;
 }
 

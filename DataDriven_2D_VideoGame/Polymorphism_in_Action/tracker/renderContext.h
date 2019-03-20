@@ -1,16 +1,16 @@
-#include <iostream>
+ #include <iostream>
 #include <SDL.h>
 #include "imageFactory.h"
 
 class RenderContext{
 public:
-  static RenderContext* getInstance();
+  static RenderContext& getInstance();
   ~RenderContext();
   SDL_Window* getWindow() const { return window; }
   SDL_Renderer* getRenderer() const { return renderer; }
 
 private:
-  static RenderContext* instance;
+  
   SDL_Window* window;
   SDL_Renderer* renderer;
 

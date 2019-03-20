@@ -20,7 +20,7 @@ Engine::Engine() :
   rc( RenderContext::getInstance() ),
   io( IoMod::getInstance() ),
   clock( Clock::getInstance() ),
-  renderer( rc->getRenderer() ),
+  renderer( rc.getRenderer() ),
   world("back", Gamedata::getInstance().getXmlInt("back/factor") ),
   viewport( Viewport::getInstance() ),
   star(new Sprite("YellowStar")),  // star is scaled in the XML
