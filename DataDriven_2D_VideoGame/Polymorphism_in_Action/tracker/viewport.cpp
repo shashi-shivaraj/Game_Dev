@@ -31,8 +31,11 @@ void Viewport::setObjectToTrack(const Drawable *obj) {
 void Viewport::draw() const {
   IoMod::getInstance().
     writeText("Tracking: "+objectToTrack->getName(), msgPos[0], msgPos[1]);
+
+  SDL_Color color = {0xff, 0, 0, 0};
   IoMod::getInstance().
-    writeText(gdata.getXmlStr("username"),gdata.getXmlInt("view/username_loc/x"), gdata.getXmlInt("view/username_loc/y"));
+    writeText(gdata.getXmlStr("username"),gdata.getXmlInt("view/username_loc/x"), 
+      gdata.getXmlInt("view/username_loc/y"),color);
   
   std::stringstream strm;
   strm<<Clock::getInstance().getFps();
