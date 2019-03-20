@@ -8,6 +8,9 @@ public:
   static Clock& getInstance();
   unsigned int getTicks() const;
   int getFps() const;
+  
+  Clock(const Clock&) = delete;
+  Clock&operator=(const Clock&) = delete;
 
 private:
   friend class Engine;
@@ -42,6 +45,5 @@ private:
   void unpause();
 
   Clock();
-  Clock(const Clock&);
-  Clock&operator=(const Clock&);
+
 };

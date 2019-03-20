@@ -18,6 +18,9 @@ public:
   void setObjectToTrack(const Drawable *obj);
   const Drawable* getObjectToTrack() const { return objectToTrack; } 
 
+  Viewport(const Viewport&) = delete;
+  Viewport& operator=(const Viewport&) = delete;
+
 private:
   const Gamedata& gdata;
   Vector2f viewPos;
@@ -32,7 +35,5 @@ private:
   const Drawable *objectToTrack;
 
   Viewport();
-  Viewport(const Viewport&) = delete;
-  Viewport& operator=(const Viewport&) = delete;
 };
 #endif

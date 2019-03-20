@@ -24,7 +24,7 @@ Clock::Clock() :
   startClock();
 }
 
-Clock::Clock(const Clock& c) :
+/*Clock::Clock(const Clock& c) :
   started(c.started), 
   paused(c.paused), 
   FRAME_CAP_ON(c.FRAME_CAP_ON), 
@@ -34,7 +34,7 @@ Clock::Clock(const Clock& c) :
   currTicks(c.currTicks), prevTicks(c.prevTicks), ticks(c.ticks) 
   {
   startClock();
-}
+}*/
 
 void Clock::toggleSloMo() {
   throw( std::string("Slow motion is not implemented yet") );

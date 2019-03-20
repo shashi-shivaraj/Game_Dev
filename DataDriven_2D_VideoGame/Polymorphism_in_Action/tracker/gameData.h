@@ -19,12 +19,13 @@ public:
   float getRandFloat(float min, float max) const;
   bool  checkTag(const std::string&)const;
 
+  Gamedata(const Gamedata&) = delete;
+  Gamedata& operator=(const Gamedata&) = delete;
+
 private:
   ParseXML parser;
   const map<std::string, std::string> gameData;
 
   Gamedata(const std::string& fn = "xmlSpec/game.xml");
-  Gamedata(const Gamedata&) = delete;
-  Gamedata& operator=(const Gamedata&) = delete;
 };
 #endif

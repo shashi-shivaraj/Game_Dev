@@ -9,6 +9,9 @@ public:
   SDL_Window* getWindow() const { return window; }
   SDL_Renderer* getRenderer() const { return renderer; }
 
+  RenderContext(const RenderContext&) = delete;
+  RenderContext& operator=(const RenderContext&) = delete;
+
 private:
   
   SDL_Window* window;
@@ -19,6 +22,4 @@ private:
   SDL_Window* initWindow();
   SDL_Renderer* initRenderer();
   RenderContext();
-  RenderContext(const RenderContext&) = delete;
-  RenderContext& operator=(const RenderContext&) = delete;
 };
