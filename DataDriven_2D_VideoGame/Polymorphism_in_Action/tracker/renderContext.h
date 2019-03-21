@@ -5,12 +5,12 @@
 class RenderContext{
 public:
   static RenderContext& getInstance();
-  ~RenderContext();
+  ~RenderContext(); //destructor
   SDL_Window* getWindow() const { return window; }
   SDL_Renderer* getRenderer() const { return renderer; }
 
-  RenderContext(const RenderContext&) = delete;
-  RenderContext& operator=(const RenderContext&) = delete;
+  RenderContext(const RenderContext&) = delete; //copy constructor
+  RenderContext& operator=(const RenderContext&) = delete;//copy assignment
 
 private:
   

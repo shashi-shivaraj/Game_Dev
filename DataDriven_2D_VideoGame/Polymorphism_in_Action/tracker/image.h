@@ -7,9 +7,12 @@
 
 class Image {
 public:
+  Image() = delete; //default contructor probibited
   Image(SDL_Surface*);
-  Image(const Image&);
-  Image& operator=(const Image&);
+  Image(const Image&); //user defined copy constructor
+  Image& operator=(const Image&);//user defined copy assignment
+  ~Image(); //user defined destructor - as per rule of three 
+
 
   void regenerateTexture();
   void draw(int x, int y) const;
@@ -23,9 +26,8 @@ public:
 private:
   SDL_Renderer * renderer;
   SDL_Surface * surface;
-  SDL_Texture * texture;
+  SDL_Texture * texture; //class Image makes texture so only it should delete it 
   SDL_Rect view;
-  Image();
 };
 
 #endif

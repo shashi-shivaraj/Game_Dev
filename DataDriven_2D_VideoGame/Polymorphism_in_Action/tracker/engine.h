@@ -9,12 +9,12 @@
 class Engine {
 public:
   Engine ();
-  ~Engine ();
+  ~Engine (); //user defined destructor - so rule of three applies
   void play();
   void switchSprite();
 
-  Engine(const Engine&) = delete;
-  Engine& operator=(const Engine&) = delete;
+  Engine(const Engine&) = delete; //copy constructor operation invalid
+  Engine& operator=(const Engine&) = delete; //copy assignment operation invalid
 
 private:
   const RenderContext& rc;

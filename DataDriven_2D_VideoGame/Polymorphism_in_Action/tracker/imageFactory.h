@@ -9,7 +9,10 @@ class ImageFactory {
 public:
 
   static ImageFactory& getInstance();
-  ~ImageFactory();
+
+  ~ImageFactory(); //destructor
+  ImageFactory(const ImageFactory&) = delete; //copy constuctor
+  ImageFactory& operator=(const ImageFactory&) = delete; //copy assignment
 
   Image* getImage(const std::string&);
   std::vector<Image*> getImages(const std::string&);
@@ -34,6 +37,5 @@ private:
     multiTextures(),
     multiImages()
   {}
-  ImageFactory(const ImageFactory&) = delete;
-  ImageFactory& operator=(const ImageFactory&) = delete;
+
 };

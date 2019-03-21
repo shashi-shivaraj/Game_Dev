@@ -8,7 +8,7 @@
 class Gamedata {
 public:
   static Gamedata& getInstance();
-  ~Gamedata();
+  ~Gamedata(); //rule of three -user defined destructor
   void displayData() const;
 
   bool getXmlBool(const std::string&) const;
@@ -19,8 +19,8 @@ public:
   float getRandFloat(float min, float max) const;
   bool  checkTag(const std::string&)const;
 
-  Gamedata(const Gamedata&) = delete;
-  Gamedata& operator=(const Gamedata&) = delete;
+  Gamedata(const Gamedata&) = delete; //rule of three - user defined copy constructor
+  Gamedata& operator=(const Gamedata&) = delete;//rule of three - user defined copy assignment
 
 private:
   ParseXML parser;

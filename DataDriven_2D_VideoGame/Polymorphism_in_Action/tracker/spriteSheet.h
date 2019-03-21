@@ -26,8 +26,8 @@ public:
   SpriteSheet()=delete;
   SpriteSheet(const SpriteSheet&)=delete;
   SpriteSheet& operator=(const SpriteSheet&)=delete;
-  SpriteSheet(SpriteSheet&&)=default;
-  SpriteSheet& operator=(SpriteSheet&&)=default;
+  SpriteSheet(SpriteSheet&&)=delete;
+  SpriteSheet& operator=(SpriteSheet&&)=delete;
 
   SpriteSheet(SDL_Surface* _src, int w, int h, const NonOwningT)
              :src(_src),view{0,0,w,h}
@@ -40,6 +40,7 @@ public:
              {
                owning = true;
              }
+
   ~SpriteSheet(){
     if(owning) SDL_FreeSurface(src);
   }

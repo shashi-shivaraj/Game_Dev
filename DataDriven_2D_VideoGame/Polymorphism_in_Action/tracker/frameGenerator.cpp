@@ -21,6 +21,10 @@ FrameGenerator::FrameGenerator() :
   }
 }
 
+FrameGenerator::~FrameGenerator()
+{
+
+}
 
 void FrameGenerator::makeFrame() {
   if ( frameCount > MAX_FRAMES ) return;

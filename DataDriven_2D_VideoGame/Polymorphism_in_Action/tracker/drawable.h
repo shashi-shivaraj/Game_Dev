@@ -18,6 +18,8 @@ public:
     name(s.name), position(s.position), velocity(s.velocity), scale(s.scale)
     { }
 
+  Drawable& operator=(const Drawable&) = delete; //copy assignment operation invalid
+
   virtual ~Drawable() {}
 
   virtual void draw() const = 0;

@@ -16,10 +16,18 @@ Image::Image( SDL_Surface* surf) :
 Image::Image( const Image& image ) :
   renderer(image.renderer),
   surface(image.surface), 
-  texture(image.texture),
+  texture( nullptr ),
   view(image.view)
-{ }
+{
+  regenerateTexture(); 
+}
 
+Image::~Image()
+{
+  if(texture) 
+    SDL_DestroyTexture(texture);
+  texture = nullptr;
+}
 
 Image& Image::operator=(const Image& rhs) {
   renderer = rhs.renderer;
